@@ -1,0 +1,203 @@
+<html>
+
+<head>
+    
+  <link rel="stylesheet" href="jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap.css">
+  <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="cached.css">
+  <link rel="stylesheet" type="text/css" href="result-light.css">
+  
+  <!-- for JQueryUI -->
+
+  <script src="jquery.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <script>
+  $(function() {
+    $( "#check" ).button();
+    $( "#format" ).buttonset();
+  });
+  </script>
+   <script>
+  //The following function is the implementation of the interval slider
+  $(function() {
+    $( "#slider-range-min" ).slider({
+      range: "min",
+      value: 2,
+      min: 1,
+      max: 60,
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "" + ui.value + " seconds" );
+      }
+    });
+    $( "#amount" ).val(  $( "#slider-range-min" ).slider( "value" ) + " seconds");
+  });
+  </script>
+
+  <style>
+  #format { margin-top: 2em; }
+  </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Instagram Weather Triangulator by Adnan Firoze (UNI: af2728)</h1>
+        </br>
+        <h1>Please select the hashtags you want to triangulate. For demo purposes, it is best to select all of them. MAKE SURE THEY HAVE ALL TURNED FROM GREEN TO WHITE.</h1>
+
+        
+
+        <form onsubmit="setTimeout(ws.onmessage(), $( "#slider-range-min" ).slider( "value" ))" * 1000>
+
+<div id="format">
+  <input type="checkbox" id="rain" value="rain"><label for="rain">Rain</label>
+  <input type="checkbox" id="selfie" value="selfie"><label for="selfie">Selfie</label>
+  <input type="checkbox" id="storm" value="storm"><label for="storm">Storm</label>
+  <input type="checkbox" id="food" value="food"><label for="food">Food</label>
+  <input type="checkbox" id="snow" value="snow"><label for="snow">Snow</label>
+  <input type="checkbox" id="earthquake" value="earthquake"><label for="earthquake">Earthquake</label>
+  <input type="checkbox" id="l4l" value="l4l"><label for="l4l">Like4Like</label>
+  <input type="checkbox" id="flood" value="flood"><label for="flood">Flood</label>
+  <input type="checkbox" id="fire" value="fire"><label for="fire">Fire</label>
+
+
+  <input type="checkbox" id="hurricane" value="hurricane"><label for="hurricane">Hurricane</label>
+  <br>
+  <br>
+  Move Slider to Adjust Polling Interval (select 2 seconds - the default, for best demo results)
+  </br>
+  <p>
+
+  <label for="amount">Poll Interval:</label>
+  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+  </p>
+   
+  <div id="slider-range-min"></div>
+
+  </br>
+  <center>   <input type="button" class="btn btn-primary" id="theButton" value="GO!"/> </center> 
+
+</div>
+  </form>
+ 
+
+        <table id="tbl" style="width:120%">
+            <tr>
+              <th>Hashtag</th>
+              <th>Location</th> 
+              <th>Date</th>
+              <th>Longitude</th>
+              <th>Latitude</th>
+            </tr>
+          
+         <script>
+         var button = document.getElementById("theButton");
+         button.onclick = function() {
+          document.getElementById("theButton").value= "Streaming";
+
+         var msg=0;
+         var flag=0;
+         var makeRow=1;
+         //checing if the checkboxes have been checked and which ones
+         var rainCheck=document.getElementById("rain").checked;
+         var stormCheck=document.getElementById("storm").checked;
+         var foodCheck=document.getElementById("food").checked;
+         var selfieCheck=document.getElementById("selfie").checked;
+         var snowCheck=document.getElementById("snow").checked;
+         var hurricaneCheck=document.getElementById("hurricane").checked;
+         var l4lCheck=document.getElementById("l4l").checked;
+         var floodCheck=document.getElementById("flood").checked;
+         var fireCheck=document.getElementById("fire").checked;
+
+        
+        //the following variables are used to keep track of which hashtags were selected and which were not
+         var elimRain;
+         var elimStorm;
+         var elimFood;
+         var elimSelfie;
+         var elimSnow;
+         var elimHurricane;
+         var elimFlood;
+         var elimFire;
+         var elimL4l;
+         if(rainCheck) elimRain="";
+         else elimRain="rain";
+         if(stormCheck) elimStorm="";
+         else elimStorm="storm";
+         if(foodCheck) elimFood="";
+         else elimFood="food";
+         if(selfieCheck) elimSelfie="";
+         else elimSelfie="selfie";
+         if(snowCheck) elimSnow="";
+         else elimSnow="snow";
+         if(hurricaneCheck) elimHurricane="";
+         else elimHurricane="hurricane";
+         if(l4lCheck) elimL4l="";
+         else elimL4l="l4l";
+         if(floodCheck) elimFlood="";
+         else elimFlood="flood";
+         if(fireCheck) elimFire="";
+         else elimFire="fire";  
+
+      //Connectng to the websocket here
+      var ws = new WebSocket('ws://localhost:8080/');
+      ws.onopen = function() {
+                console.log("opened");
+                var tr = tbl.insertRow();
+               
+
+      };
+      ws.onclose = function() {
+                console.log("closed");
+      };
+      ws.onmessage = function(event) {
+     
+        console.log(event.data);
+        var hash=event.data;
+      //  Checking which hashtags to eliminate based on user selection
+         if((hash!=elimSnow)||(hash!=elimFood)||(hash!=elimSelfie) ||(hash!=elimStorm) ||(hash!=elimHurricane)||(hash!=elimFlood)||(hash!=elimL4l)||(hash!=elimFire) && flag%5==0){
+            if(hash!=""){ 
+                if(makeRow==1) tr = tbl.insertRow();
+                flag+=4;
+              
+    console.log("msg: ");
+    console.log(msg);
+    var td = tr.insertCell();
+    td.appendChild(document.createTextNode(event.data));
+    td.style.border = '1px solid black';
+    msg++;
+  }
+    if(msg%5==0) makeRow=1;
+    else makeRow=0;
+    //console.log("in if");
+
+  
+   
+  }
+
+          else{
+            flag++;
+              console.log("in else");
+
+              console.log(flag);
+
+          }
+
+if(flag%5==0){
+  
+
+  console.log(flag);
+}
+ 
+}}; 
+
+
+    </script>
+    </table>
+
+</div>
+   
+</body>
+
+</html>
+
