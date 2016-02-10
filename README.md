@@ -97,7 +97,7 @@ Gracias Madre
 
 34.0809382"
 
-4. **Part 3:** [I used Jquery, Javascript, JQueryUI, HTML and Bootstrap to build the frontend] 
+**Part 3:** [I used Jquery, Javascript, JQueryUI, HTML and Bootstrap to build the frontend] 
 
  * Setting up web socket: Now open a new tab in the terminal (while being in the same directory) and type in the following (without quotes): "websocketd --port 8080 python instagram.py" and hit enter. The web socket will be up and running and will be serving over port 8080. 
  * Setting up web server: Again open a new terminal tab (WHILE THE PREVIOUS ONE IS RUNNING) and type in "python -m SimpleHTTPServer" (without quotes) and hit enter. Now we are good to go as we have this directory serving over port 8000. 
@@ -108,4 +108,4 @@ Gracias Madre
 
 [![Video-demo](http://img.youtube.com/vi/keRvLc7Hibk/0.jpg)](http://www.youtube.com/watch?v=keRvLc7Hibk)
 
-5. The webpage will go on forever so you need to reload it (as mentioned in the Assignment instructions)
+**The webpage will go on forever so you need to reload it (as mentioned in the Assignment instructions)**
