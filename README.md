@@ -37,7 +37,7 @@ The volume of message really depends on user preference of hashtags and polling 
 
 # How to run:
 
-Assuming you are in a Mac and have the prerequisites (Python 2.7, websocketd) installed the steps are as follows:
+Assuming you are susing a Mac (or any UNIX based terminal) and have the prerequisites (Python 2.7, websocketd) installed the steps are as follows:
 
 1. Download this directory to your computer
 2. In the terminal, change to the directory to the directory where the files have been downloaded.
