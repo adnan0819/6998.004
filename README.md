@@ -1,6 +1,6 @@
 # COMSE6998.004 Assignment 1 
 
-# Instagram Weather Triangulator
+# Instagram Calamity Triangulator
 
 # - Adnan Firoze (af2728)
 # (Dual MS in CS & Journalism)
