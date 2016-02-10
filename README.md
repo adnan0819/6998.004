@@ -20,7 +20,7 @@ The primary objective of this is to triangulate the locations of events that can
 
 **What each message mean?**
 
-Every message polled from this refers to the event of a person taking a picture of a specific event (at this moment) that relates to the hashtags mentioned. Note that I used a subsring search so even if I am searching for "rain" I will get hashtags like "raining", "rainy" etc. and similarly "stormy", "snowstorm", "sandstorm" etc. Moreover, I am only accepting posts with Geolocation for verificaiton purposes and returning location name, longitude and latitude from where it was taken. This I am filtering out the unverifiable posts. 
+Every message polled from this refers to the event of a person taking a picture of a specific event (at this moment) that relates to the hashtags mentioned. Note that I used a subsring search so even if I am searching for "rain" I will get hashtags like "raining", "rainy" etc. and similarly "stormy", "snowstorm", "sandstorm" etc. Moreover, I am only accepting posts with Geolocation for verificaiton purposes and returning ***date/time, location name, longitude and latitude*** from where it was taken. This I am filtering out the unverifiable posts. 
 
 **Volume of Message expected:**
 
