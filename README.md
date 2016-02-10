@@ -5,13 +5,13 @@
 # - Adnan Firoze (af2728)
 # (Dual MS in CS & Journalism)
 
-This project/assignment polls Instagram API's ***recent tags endpoint*** and pulls out selected tags by the user and more specifically some that are helpful in triangulating catastrophic phemomenon such as flood, rain, storm, hurricane and the like. For demo purposes, I have included the hashtags #food, #selfie, #l4l so that you do not need to wait too long to see results. By default the polling is done using a two (2) seconds interval but it can be adjusted from the web front-end. **How-to and technical details is at the end of "Part 1."**
+This project/assignment polls Instagram API's ***recent tags endpoint*** and pulls out selected tags based on user preferences and more specifically, some that are helpful in triangulating catastrophic phemomena such as ***flood, rain, storm, hurricane, fire*** and the like. For demo purposes, I have included the hashtags #food, #selfie, #l4l so that you do not need to wait too long to see results. By default the polling is done using a two (2) seconds interval but it can be adjusted from the web front-end. **How-to and technical details is at the end of "Part 1." Moreover, I have included a video walkthrough for the demo's convenience.**
 
 # Part 1:
 
 **The Stream:**
 
-The stream I selected is the Instagram recently uploaded hashtag stream from the API endpoint: https://api.instagram.com/v1/tags/latergram/media/recent?access_token=186174857.3d82e12.e8205e331f0a47499a1e4008c3b86f3b
+The stream I selected is the Instagram recently uploaded hashtag stream from the API endpoint: https://api.instagram.com/v1/tags/latergram/media/recent?access_token=186174857.3d82e12.e8205e331f0a47499a1e4008c3b86f3b .
 Note that the access token is mine. 
 
 **What it means in the real world:**
